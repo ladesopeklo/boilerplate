@@ -11,6 +11,10 @@
 		"gulp": "",
 		"gulp-uglify": "",
 		"gulp-less": "",
+		"morgan": "",
+		"body-parser": "",
+		"errorhandler": "",
+		"method-override": "",
 		"moment": ""
 	}
 }

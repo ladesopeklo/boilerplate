@@ -16,12 +16,15 @@ function getLibs() {
 	var min = isMin ? ".min" : "";
 	return [
 		'libs/*' + min + '.js',
+		"libs/react/react-with-addons" + min + ".js",
+		"libs/react/JSXTransformer.js"
 	];
 }
 
 var paths = {
 	scripts: [
 		'src/**.js',
+		'src/components/*.js',
 	],
 	cssLibs: [
 		"libs/*.css"
