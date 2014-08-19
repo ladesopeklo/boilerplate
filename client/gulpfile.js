@@ -16,15 +16,13 @@ function getLibs() {
 	var min = isMin ? ".min" : "";
 	return [
 		'libs/*' + min + '.js',
-		"libs/react/react-with-addons" + min + ".js",
-		"libs/react/JSXTransformer.js"
+		"libs/mithril/mithril.min.js"
 	];
 }
 
 var paths = {
 	scripts: [
 		'src/**.js',
-		'src/components/*.js',
 	],
 	cssLibs: [
 		"libs/*.css"
@@ -48,15 +46,13 @@ gulp.task("scripts", function () {
 gulp.task("js-libs", function () {
 	gulp.src(getLibs())
 		.pipe(concat("app.libs.js"))
-		.pipe(gulp.dest("build"))
-	;
+		.pipe(gulp.dest("build"));
 });
 
 gulp.task("css-libs", function () {
 	gulp.src(paths.cssLibs)
 		.pipe(concat("app.libs.css"))
-		.pipe(gulp.dest("build"))
-	;
+		.pipe(gulp.dest("build"));
 });
 
 gulp.task("less", function () {
