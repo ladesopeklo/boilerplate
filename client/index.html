@@ -21,8 +21,24 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+		<div id="example"></div>
 
 		<script>
+			var xxx = {};
+
+			xxx.Prdel = function (name) {
+				this.name = name;
+			};
+			xxx.controller = function (initName) {
+				this.prdel = new xxx.Prdel(initName);
+			};
+			xxx.view = function(ctrl) {
+				console.log(this);
+				return m("h1", "Hello " + ctrl.prdel.name)
+			};
+
+			//m.module(document.getElementById("example"), xxx);
+
 			//this application only has one module: todo
 			var todo = {};
 
@@ -47,6 +63,9 @@
 				this.list = new todo.TodoList();
 				this.description = m.prop("");
 
+				this.chuj = new xxx.controller("test");
+				console.log(this.chuj);
+
 				this.add = function() {
 					if (this.description()) {
 						this.list.push(new todo.Todo({description: this.description()}));
@@ -59,6 +78,7 @@
 			todo.view = function(ctrl) {
 				return m("html", [
 					m("body", [
+						m("div", xxx.view(ctrl.chuj)),
 						m("input", {onchange: m.withAttr("value", ctrl.description), value: ctrl.description()}),
 						m("button", {onclick: ctrl.add}, "Add"),
 						m("table", [
@@ -78,10 +98,9 @@
 			//initialize the application
 			m.module(document, todo);
 		</script>
-		<div id="example"></div>
 
 		<div>
-			test
+			tessdsdt
 		</div>
 
 
