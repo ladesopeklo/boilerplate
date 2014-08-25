@@ -30,66 +30,23 @@
 <div id="user"></div>
 
 <script>
-	var user = {};
+	var xxx = {};
 
-	/**
-	 *
-	 * @param {object} data
-	 * @constructor
-	 */
-	user.UserInfo = function () {
+
+	xxx.controller = function () {
 
 	};
-
-	user.UserInfo.prototype.init = function (data) {
-		this.data = data;
-		this.userId = this.data.feed.gphoto$user.$t;
-		this.entry = this.data.feed.entry;
+	xxx.view = function (controller) {
+		return m("div", "sdfkjsdbfjksdb");
 	};
 
-	user.getData = function () {
-		return m.request({method: "GET", url: "https://picasaweb.google.com/data/feed/api/user/108104263107535951418/?alt=json"});
-	};
+	m.route.mode = "hash";
+	m.route(document.body, "/", {
+		"/": user,
+		"/album/:id": entryDetail
+	});
 
-	user.controller = function (id) {
-		var self = this;
-		this.model = new user.UserInfo({});
-
-		user.getData().then(function (data) {
-			self.model.init(data);
-			self.album = new entry.controller(self.model.entry[0]);
-			console.log(self.model.userId, data);
-		});
-	};
-	user.view = function (ctrl) {
-		return [
-			m("a", ctrl.model.userId),
-			ctrl.model.entry.map(function (data) {
-				return m("div", [
-					m("div", entry.view(new entry.controller(data))),
-					m("div", "---")
-				]);
-			}),
-		];
-	};
-
-	var entry = {};
-
-	entry.Album = function (data) {
-		this.title = data.title.$t;
-		this.link = data.link[1].href;
-	};
-	entry.controller = function (data) {
-		this.model = new entry.Album(data)
-	};
-	entry.view = function (controller) {
-		return m("div", [
-			m("div", controller.model.title),
-			m("div", controller.model.link)
-		]);
-	};
-
-	m.module(document.getElementById("user"), user);
+//	m.module(document.getElementById("user"), user);
 
 
 	//			//m.module(document.getElementById("example"), xxx);
