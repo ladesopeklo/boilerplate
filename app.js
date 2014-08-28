@@ -15,7 +15,7 @@ var errorHandler = require('errorhandler');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 2000);
 
 app.use(logger('dev'));
 app.use(bodyParser());       // to support JSON-encoded bodies
