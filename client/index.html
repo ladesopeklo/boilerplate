@@ -16,19 +16,58 @@
 
 	<link rel="stylesheet" href="css/normalize.min.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/custom.css">
 
 	<script src="build/app.libs.js" type="text/javascript"></script>
 	<script src="build/app.js" type="text/javascript"></script>
-
+	<link href='http://fonts.googleapis.com/css?family=Dosis:200,400|Noto+Sans|PT+Sans|Oswald|Open+Sans+Condensed:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
 	your browser</a> to improve your experience.</p>
 <![endif]-->
-<div id="xxx">
-	tessdsdt
+
+<div class="full-body home">
+	<div class="logo-wrap">
+		<div class="logo container_12">
+			<div class="grid_6 left">
+				<h1>JÁRA</h1>
+				<span class="dlabu">nadseny dlabac</span>
+			</div>
+			<div class="grid_6 right">
+				<h1 >TOMKA</h1>
+			</div>
+
+		</div>
+	</div>
+	<div class="container_12 full" style="position:absolute;top:60%">
+		<div class="grid_3">.</div>
+		<div class="grid_3">REFERENCE</div>
+		<div class="grid_3" style="text-align: right">KONTAKT</div>
+		<div class="grid_3">.</div>
+	</div>
+	<div class="container_12 full" style="position:absolutex;">
+		asdasd
+		<div class="grid_6">reference</div>
+		<div class="grid_6">kontakt</div>
+		<div class="grid_6">reference</div>
+		<div class="grid_6">kontakt</div>
+		<div class="grid_6">reference</div>
+		<div class="grid_6">kontakt</div>
+		<div class="grid_6">reference</div>
+		<div class="grid_6">kontakt</div>
+		<div class="grid_6">reference</div>
+		<div class="grid_6">kontakt</div>
+		<div class="grid_6">reference</div>
+		<div class="grid_6">kontakt</div>
+		<div class="grid_6">reference</div>
+		<div class="grid_6">kontakt</div>
+	</div>
 </div>
+
+
+<div id="xxx"></div>
 <div id="example"></div>
 <div id="user"></div>
 <div id="test">TEST</div>
@@ -38,7 +77,7 @@
 
 	xxx.controller = function () {
 		var items = [];
-		for(var i = 0; i < 10000; i++) {
+		for (var i = 0; i < 10000; i++) {
 			items.push({
 				title: 'Foo Bar ' + i
 			})
@@ -47,11 +86,11 @@
 		this.c = 1;
 	};
 	xxx.view = function (controller) {
-		return m("div", {style:"position:fixed;left: 900px"}, [
+		return m("div", {style: "position:fixed;left: 900px"}, [
 			m("span", controller.c),
 			controller.aa.map(function (item) {
-					return m("span", controller.c);
-				})
+				return m("span", controller.c);
+			})
 		]);
 	};
 
@@ -63,7 +102,7 @@
 
 
 	//yes, window.innerHeight is a data source, so it goes in the model
-	window.addEventListener("scroll", function(e) {
+	window.addEventListener("scroll", function (e) {
 		ui.state.xxx(Math.max(e.pageY || window.pageYOffset, 0));
 //		app.state.pageY = Math.max(e.pageY || window.pageYOffset, 0);
 //		app.state.pageHeight = window.innerHeight;
@@ -83,20 +122,13 @@
 	};
 
 	ui.view = function () {
-		return m("div", {style:"position:fixed;left: 300px"} ,"jkbnasdjbas"+ ui.state.xxx() );
+		return m("div", {style: "position:fixed;left: 300px"}, "jkbnasdjbas" + ui.state.xxx());
 	};
 
-//	m.module(document.getElementById("example"), ui)
+	//	m.module(document.getElementById("example"), ui)
 </script>
 
 
-<div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div>
-<div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div>
-<div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div>
-<div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div>
-<div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div>
-<div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div>
-<div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div><div>d</div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

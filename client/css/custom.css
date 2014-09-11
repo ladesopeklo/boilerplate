@@ -1,0 +1,177 @@
+.box {
+  position: relative;
+  width: 50%;
+  /* desired width */
+
+}
+.box .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.box:before {
+  content: "";
+  display: block;
+}
+.ratio2_1:before {
+  padding-top: 50%;
+}
+.ratio1_2:before {
+  padding-top: 200%;
+}
+.ratio4_3:before {
+  padding-top: 75%;
+}
+.ratio16_9:before {
+  padding-top: 56.25%;
+}
+.container_12 {
+  margin: 2% auto;
+  width: 96%;
+  position: relative;
+}
+.container_12.full {
+  margin: 0;
+  width: 100%;
+}
+.container_12 .grid_1 {
+  float: left;
+  width: 8.333333333333332%;
+}
+.container_12 .grid_1 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_2 {
+  float: left;
+  width: 16.666666666666664%;
+}
+.container_12 .grid_2 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_3 {
+  float: left;
+  width: 25%;
+}
+.container_12 .grid_3 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_4 {
+  float: left;
+  width: 33.33333333333333%;
+}
+.container_12 .grid_4 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_5 {
+  float: left;
+  width: 41.66666666666667%;
+}
+.container_12 .grid_5 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_6 {
+  float: left;
+  width: 50%;
+}
+.container_12 .grid_6 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_7 {
+  float: left;
+  width: 58.333333333333336%;
+}
+.container_12 .grid_7 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_8 {
+  float: left;
+  width: 66.66666666666666%;
+}
+.container_12 .grid_8 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_9 {
+  float: left;
+  width: 75%;
+}
+.container_12 .grid_9 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_10 {
+  float: left;
+  width: 83.33333333333334%;
+}
+.container_12 .grid_10 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_11 {
+  float: left;
+  width: 91.66666666666666%;
+}
+.container_12 .grid_11 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.container_12 .grid_12 {
+  float: left;
+  width: 100%;
+}
+.container_12 .grid_12 div {
+  background-color: #dcdcdc;
+  margin: 1px;
+}
+.full-body {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+.full-body.home {
+  background: url("/resources/img/home.png") center;
+}
+.full-body .logo-wrap {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+.full-body .dlabu {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 200;
+}
+.full-body .logo {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Oswald', sans-serif;
+}
+.full-body .logo H1 {
+  font-size: 5em;
+  margin: 0.2em;
+}
+.full-body .logo .left {
+  text-align: right;
+}
+.full-body .logo .left h1 {
+  color: black;
+  padding-right: 0.2em;
+}
+.full-body .logo .right {
+  text-align: left;
+}
+.full-body .logo .right h1 {
+  padding-left: 0.2em;
+  display: inline-block;
+  color: white;
+}
