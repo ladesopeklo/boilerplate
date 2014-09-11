@@ -1,0 +1,78 @@
+.box{
+	position: relative;
+	width: 50%;		/* desired width */
+	.content{
+		position:  absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+}
+.box:before{
+	content: "";
+	display: block;
+}
+
+.ratio2_1:before{
+	padding-top: 50%;
+}
+.ratio1_2:before{
+	padding-top: 200%;
+}
+.ratio4_3:before{
+	padding-top: 75%;
+}
+.ratio16_9:before{
+	padding-top: 56.25%;
+}
+
+
+.container_12 {
+	margin: 2% auto;
+	width: 96%;
+	position: relative;
+
+	.Grid(@index) {
+		float: left;
+		width: @index/12 * 100% ;
+		div {
+			background-color: #dcdcdc;
+			margin: 1px;
+		}
+	}
+
+	.grid_1 {.Grid(1)}
+	.grid_2 {.Grid(2)}
+	.grid_3 {.Grid(3)}
+	.grid_4 {.Grid(4)}
+	.grid_5 {.Grid(5)}
+	.grid_6 {.Grid(6)}
+	.grid_7 {.Grid(7)}
+	.grid_8 {.Grid(8)}
+	.grid_9 {.Grid(9)}
+	.grid_10 {.Grid(10)}
+	.grid_11 {.Grid(11)}
+	.grid_12 {.Grid(12)}
+}
+
+.full-body {
+	background: url("/resources/img/back.png") center;
+
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	width:100%;
+
+	.logo-wrap {
+		width: 100%;
+		height: 100%;
+		display: table;
+	}
+	.logo {
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+	}
+;
+}
