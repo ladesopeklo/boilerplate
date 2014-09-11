@@ -1,0 +1,27 @@
+.container_12 {
+	margin: 2% auto;
+	width: 96%;
+	position: relative;
+
+	.Grid(@index) {
+		float: left;
+		width: @index/12 * 100% ;
+		div {
+			background-color: #dcdcdc;
+			margin: 1px;
+		}
+	}
+
+	.grid_1 {.Grid(1)}
+	.grid_2 {.Grid(2)}
+	.grid_3 {.Grid(3)}
+	.grid_4 {.Grid(4)}
+	.grid_5 {.Grid(5)}
+	.grid_6 {.Grid(6)}
+	.grid_7 {.Grid(7)}
+	.grid_8 {.Grid(8)}
+	.grid_9 {.Grid(9)}
+	.grid_10 {.Grid(10)}
+	.grid_11 {.Grid(11)}
+	.grid_12 {.Grid(12)}
+}
