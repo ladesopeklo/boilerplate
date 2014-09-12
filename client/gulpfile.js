@@ -16,6 +16,7 @@ function getLibs() {
 	var min = isMin ? ".min" : "";
 	return [
 		'libs/*' + min + '.js',
+		"libs/zepto/zepto" + min + ".js",
 		"libs/mithril/mithril.min.js"
 	];
 }

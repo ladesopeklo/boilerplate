@@ -1,86 +1,63 @@
 //http://paletton.com/#uid=34B0u0k2mbNa4kW448k8669fl8b
 @import "colors";
+@import "aspectratio";
+@import "grid";
 
+@color3: #412E28;
+@color2: #B3204D;
 html {
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 200;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
 }
 
 .footer {
-	padding: 50px;
-	background-color:#190E21;
-	color: #FFE100;
-}
-.box{
-	position: relative;
-	width: 50%;		/* desired width */
-	.content{
-		position:  absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-	}
-}
-.box:before{
-	content: "";
-	display: block;
-}
+	border-top: 0.5em solid #412E28;
+	background-color:#151101;
+	color: #EDF6EE;
 
-.ratio2_1:before{
-	padding-top: 50%;
-}
-.ratio1_2:before{
-	padding-top: 200%;
-}
-.ratio4_3:before{
-	padding-top: 75%;
-}
-.ratio16_9:before{
-	padding-top: 56.25%;
-}
-
-
-.container_12 {
-	margin: 2% auto;
-	width: 96%;
-	position: relative;
-
-	&.full {
-		margin: 0;
-		width: 100%;
-
-	}
-	.Grid(@index) {
-		float: left;
-		width: @index/12 * 100% ;
-		div {
-			background-color: #dcdcdc;
-			margin: 1px;
+	.content  {
+		border-top: 0.1em solid @color2;
+		padding: 1em;
+		&.fill {
+			padding: 0;
 		}
 	}
 
-	.grid_1 {.Grid(1)}
-	.grid_2 {.Grid(2)}
-	.grid_3 {.Grid(3)}
-	.grid_4 {.Grid(4)}
-	.grid_5 {.Grid(5)}
-	.grid_6 {.Grid(6)}
-	.grid_7 {.Grid(7)}
-	.grid_8 {.Grid(8)}
-	.grid_9 {.Grid(9)}
-	.grid_10 {.Grid(10)}
-	.grid_11 {.Grid(11)}
-	.grid_12 {.Grid(12)}
+	.content-helper {
+		.content {
+		}
+	}
 }
-
-
 
 .full-body {
 
 	&.home {
 		background: url("/resources/img/home.png") center;
+		background: url("/resources/img/home2.png") center;
+		.home-menu {
+			position: absolute;
+			top: 70%;
+		}
+		.home-menu .content {
+			color: #151101;
+			&:hover{
+				color:#B3204D;
+			}
+			font-size: 2em;
+			font-weight: 100;
+			text-align: center;
+		}
 	}
+
+	&.main {
+
+		.main-content {
+			height: 100px;
+			background-color: #0040D0;
+		}
+	}
+
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
@@ -92,8 +69,11 @@ html {
 		display: table;
 	}
 	.dlabu {
-		font-family: 'Dosis', sans-serif;
-		font-weight: 200;
+		font-size: 1em;
+		color:@color3;
+		left: 16.6em;
+		display: block;
+		position: relative;
 	}
 	.logo {
 		display: table-cell;
@@ -103,6 +83,7 @@ html {
 		H1 {
 			font-size: 5em;
 			margin: 0.2em;
+			line-height: 0.5em;
 		}
 		.left {
 			text-align: right;
