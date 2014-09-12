@@ -3,3 +3,5 @@ client/build/**
 client/node_modules/**
 node_modules/**
 build/**
+client/css/aspectratio.css
+client/css/grid.css
