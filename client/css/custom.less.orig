@@ -1,16 +1,4 @@
-//http://paletton.com/#uid=34B0u0k2mbNa4kW448k8669fl8b
-@import "colors";
-
-html {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 200;
-}
-
-.footer {
-	padding: 50px;
-	background-color:#190E21;
-	color: #FFE100;
-}
+<<<<<<< HEAD
 .box{
 	position: relative;
 	width: 50%;		/* desired width */
@@ -121,4 +109,18 @@ html {
 		}
 	}
 ;
+=======
+//http://paletton.com/#uid=34B0u0k2mbNa4kW448k8669fl8b
+@import "colors";
+
+html {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 200;
+}
+
+.footer {
+	padding: 50px;
+	background-color:#190E21;
+	color: #FFE100;
+>>>>>>> origin/jara
 }
