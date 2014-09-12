@@ -1,0 +1,13 @@
+/* Main HlavnÃ­ barva */
+/* Main VedlejÅ¡Ã­ barva (1) */
+/* Main VedlejÅ¡Ã­ barva (2) */
+/* Main DoplÅˆkovÃ¡ barva */
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+}
+.footer {
+  padding: 50px;
+  background-color: #190E21;
+  color: #FFE100;
+}
