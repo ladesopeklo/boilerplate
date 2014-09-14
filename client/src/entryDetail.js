@@ -7,7 +7,6 @@ entryDetail.AlbumDetail = function () {
 
 };
 
-var gData = {};
 
 (function () {
 
@@ -69,8 +68,10 @@ var gData = {};
 
 
 entryDetail.getData = function () {
-	var id = m.route.param("id");
-	return m.request({method: "GET", url: "https://picasaweb.google.com/data/feed/api/user/108104263107535951418/albumid/" + id + "?alt=json"});
+	var id = m.route.param("id"),
+        userId = globalSettings.userId;
+
+	return m.request({method: "GET", url: "https://picasaweb.google.com/data/feed/api/user/" + userId + "/albumid/" + id + "?alt=json"});
 };
 
 entryDetail.controller = function () {
