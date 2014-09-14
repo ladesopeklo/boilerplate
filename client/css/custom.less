@@ -3,8 +3,9 @@
 @import "aspectratio";
 @import "grid";
 
-@color3: #412E28;
 @color2: #B3204D;
+@color3: #412E28;
+@color4: #151101;
 html {
 	font-family: 'Open Sans', sans-serif;
 	font-family: 'Roboto', sans-serif;
@@ -12,8 +13,8 @@ html {
 }
 
 .footer {
-	border-top: 0.5em solid #412E28;
-	background-color:#151101;
+	border-top: 0.5em solid @color3;
+	background-color:@color4;
 	color: #EDF6EE;
 
 	.content  {
@@ -60,7 +61,7 @@ html {
 
 	position: absolute;
 	top: 0px;
-	bottom: 0px;
+	bottom: 90%;
 	width:100%;
 
 	.logo-wrap {
