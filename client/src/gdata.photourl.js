@@ -1,17 +1,29 @@
-/*global gData*/
+
 (function () {
-	"use strict";
+    gData.PhotoUrl = function (url, width, height) {
+        this.url = url;
+        this.urlParts = this.url.split("/");
+        this.width = width;
+        this.height= height;
 
-	gData.PhotoUrl = function (url) {
-		this.url = url;
-		this.urlParts = this.url.split("/");
+        this.placeholderIndex = this.urlParts.length - 1;
+        this.urlParts.splice(this.placeholderIndex, 0, "s75");
+    };
 
-		this.placeholder = this.urlParts.length - 1;
-		this.urlParts.splice(this.placeholder, 0, "s75");
-	};
+    /**
+     * @param {string|number=} size
+     * -1: fullsize,
+     * empty - default thumb,
+     * w99 - set width to 99
+     * @returns {string} url
+     */
+    gData.PhotoUrl.prototype.get = function (size) {
+        var setSize = size || "s75";
 
-	gData.PhotoUrl.prototype.get = function (size) {
-		this.urlParts[this.placeholder] = size || "s75-c";
-		return this.urlParts.join("/");
-	};
+        if (size === -1) {
+            setSize =  "w" + this.width;
+        }
+        this.urlParts[this.placeholderIndex] = setSize;
+        return this.urlParts.join("/");
+    };
 }());

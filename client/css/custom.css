@@ -96,7 +96,7 @@ html {
 }
 .footer .content {
   border-top: 0.1em solid #b3204d;
-  padding: 1em;
+  padding: 3em;
 }
 .footer .content.fill {
   padding: 0;
@@ -104,7 +104,7 @@ html {
 .full-body {
   position: absolute;
   top: 0px;
-  bottom: 90%;
+  bottom: 0px;
   width: 100%;
 }
 .full-body.home {
