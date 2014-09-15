@@ -57,7 +57,6 @@ entryDetail.AlbumDetail = function () {
 		this.urlParts = this.url.split("/");
 
 		this.placeholder = this.urlParts.length - 1;
-		this.urlParts.splice(this.placeholder, 0, "s75");
 	};
 
 	gData.PhotoUrl.prototype.get = function (size) {
@@ -82,9 +81,6 @@ entryDetail.controller = function () {
 
 	entryDetail.getData().then(function (data) {
 		self.album.init(data);
-
-		console.log(self.album);
-		console.log(JSON.stringify(self.album.toJson()));
 	});
 
 };
