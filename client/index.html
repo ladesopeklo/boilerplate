@@ -94,65 +94,12 @@ http://www.colourlovers.com/palette/803258/french_kiss
 
 </div>
 
-
-<div id="example"></div>
-<div id="user"></div>
-<div id="test">TEST</div>
-
 <script>
-	var xxx = {};
-
-	xxx.controller = function () {
-		var items = [];
-		for (var i = 0; i < 10000; i++) {
-			items.push({
-				title: 'Foo Bar ' + i
-			})
-		}
-		this.aa = items;
-		this.c = 1;
-	};
-	xxx.view = function (controller) {
-		return m("div", {style: "position:fixed;left: 900px"}, [
-			m("span", controller.c),
-			controller.aa.map(function (item) {
-				return m("span", controller.c);
-			})
-		]);
-	};
-
 	m.route.mode = "hash";
 	m.route(document.getElementById("xxx"), "/", {
 		"/": index,
 		"/album/:name": album
 	});
-
-
-	//yes, window.innerHeight is a data source, so it goes in the model
-	window.addEventListener("scroll", function (e) {
-		ui.state.xxx(Math.max(e.pageY || window.pageYOffset, 0));
-//		app.state.pageY = Math.max(e.pageY || window.pageYOffset, 0);
-//		app.state.pageHeight = window.innerHeight;
-//		console.log(window.innerHeight, app.state.pageY)
-
-		var x = new ui.controller();
-//		m.render(document.getElementById("example"), ui.view(x))
-
-	});
-
-
-	var ui = {};
-
-	ui.state = {xxx: m.prop(0)};
-	ui.controller = function () {
-
-	};
-
-	ui.view = function () {
-		return m("div", {style: "position:fixed;left: 300px"}, "jkbnasdjbas" + ui.state.xxx());
-	};
-
-	//	m.module(document.getElementById("example"), ui)
 </script>
 
 <script>

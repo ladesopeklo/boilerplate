@@ -5,3 +5,4 @@ node_modules/**
 build/**
 client/css/aspectratio.css
 client/css/grid.css
+client/libs/bower_components/**

@@ -27,6 +27,11 @@ index.view = function (ctrl) {
 
 var gallery = {};
 
+/**
+ *
+ * @param {data.ImageGallery} imageGallery
+ * @param {object=} settings
+ */
 gallery.controller = function (imageGallery, settings) {
 	this.settings = settings || {};
 	this.name = imageGallery.name;
@@ -64,10 +69,3 @@ fullsize.view = function (c) {
 	return m("div", [m("div", "xxx"), m("div", c.content)]);
 };
 
-
-
-window.onload = function () {
-	document.getElementById("test").addEventListener("click", function () {
-		m.redraw();
-	});
-};
