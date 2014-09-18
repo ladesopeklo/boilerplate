@@ -1,6 +1,5 @@
 /*global require*/
 "use strict"
-
 // gulp --type release
 
 var gulp = require("gulp"),
@@ -9,15 +8,14 @@ var gulp = require("gulp"),
 	minifyCSS = require('gulp-minify-css'),
 	concat = require("gulp-concat"),
 	karma = require('gulp-karma'),
+	mainBowerFiles = require('main-bower-files'),
 	path = require('path'),
 	isMin = false;
 
 function getLibs() {
 	var min = isMin ? ".min" : "";
 	return [
-		'libs/*' + min + '.js',
-		"libs/zepto/zepto" + min + ".js",
-		"libs/mithril/mithril.min.js"
+			'libs/bower_components/*/*' + min + '.js',
 	];
 }
 

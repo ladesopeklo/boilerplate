@@ -7,7 +7,6 @@
 			this.images.push(new data.Image(images[i]));
 		}
 	};
-
 	data.ImageGallery.prototype.toJson = function () {
 	};
 }());

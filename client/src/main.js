@@ -1,2 +1,1 @@
-var gData = {},
-	data = {};
+var data = {};

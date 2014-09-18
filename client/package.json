@@ -1,15 +1,17 @@
 {
-	"name": "application-builder",
-	"version": "0.0.1",
-	"private": true,
-	"dependencies": {
-		"gulp": "",
-		"gulp-less": "",
-		"gulp-uglify": "",
-		"gulp-minify-css": "",
-		"gulp-concat": "",
-		"gulp-karma": "",
-		"path": ""
-	}
+  "name": "application-builder",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "gulp": "",
+    "gulp-less": "",
+    "gulp-uglify": "",
+    "gulp-minify-css": "",
+    "gulp-concat": "",
+    "gulp-karma": "",
+    "path": ""
+  },
+  "devDependencies": {
+    "main-bower-files": "~2.0.0"
+  }
 }
-

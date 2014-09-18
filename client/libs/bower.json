@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "gdata": "c:/Users/vladimir/Projects/picasa/client/src/gdata/",
-    "zepto": "https://github.com/components/zepto.git"
+    "zepto": "zepto#*",
+    "mithril": "mithril#*"
     },
   "moduleType": []
 }
