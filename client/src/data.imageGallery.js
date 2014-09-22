@@ -1,8 +1,10 @@
+/*global data*/
 (function () {
 	"use strict";
 	data.ImageGallery = function (d) {
 		var images = d.images || [];
 		this.images = [];
+		this.name = d.name;
 		for (var i = 0; i < images.length; i++) {
 			this.images.push(new data.Image(images[i]));
 		}

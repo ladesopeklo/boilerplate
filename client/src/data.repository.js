@@ -10,4 +10,8 @@
 		return this.galleries[i];
 	};
 
+	data.Repository.prototype.galleriesAll = function () {
+		return this.galleries;
+	};
+
 }());
