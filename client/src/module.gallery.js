@@ -11,15 +11,13 @@ gallery.controller = function (imageGallery, settings) {
 	this.images = imageGallery.images;
 
 	this.imageGallery = imageGallery;
-
-	this.fullSize = settings.moduleFullsize;
 };
 /**
  *
  * @param {data.ImageGallery} imageGallery
  */
-gallery.controller.prototype.open = function (imageGallery) {
-	this.fullSize.showContent(imageGallery);
+gallery.controller.prototype.click = function (imageGallery, image) {
+	this.settings.onClick(imageGallery, image);
 };
 
 
@@ -28,9 +26,8 @@ gallery.view = function (controller) {
 		[
 			m("div", controller.name),
 
-			controller.images.map(function (item) {
-				return m("img", {src: item.getUrl(), onclick: controller.open.bind(controller, controller.imageGallery)});
+			controller.images.map(function (item, i) {
+				return m("img", {src: item.getUrl(), onclick: controller.click.bind(controller, controller.imageGallery, i)});
 			}),
-			m("div", fullsize.view(controller.fullSize))
 		]);
 };
