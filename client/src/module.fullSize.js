@@ -19,7 +19,7 @@ fullsize.view = function (c) {
 	}
 	return m("div", [
 		m("div", "xxx"),
-		m("img", {src: c.content.images[c.imageIndex].getUrl()}),
+		m("img", {src: c.content.images[c.imageIndex].getUrl("s900")}),
 		m("div", c.content.name)
 	]);
 };
