@@ -84,6 +84,12 @@
   float: left;
   width: 100%;
 }
+.module-fullsize {
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
 html {
   font-family: 'Open Sans', sans-serif;
   font-family: 'Roboto', sans-serif;

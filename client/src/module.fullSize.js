@@ -7,6 +7,7 @@ fullsize.controller = function (xxx) {
 /**
  *
  * @param {data.ImageGallery} gallery
+ * @param {number} image
  */
 fullsize.controller.prototype.showContent = function (gallery, image) {
 	this.imageIndex = image;
@@ -17,7 +18,7 @@ fullsize.view = function (c) {
 	if (c.content === undefined) {
 		return;
 	}
-	return m("div", [
+	return m("div", {class: "module-fullsize"}, [
 		m("div", "xxx"),
 		m("img", {src: c.content.images[c.imageIndex].getUrl("s900")}),
 		m("div", c.content.name)
