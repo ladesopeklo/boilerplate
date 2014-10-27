@@ -85,8 +85,9 @@
   width: 100%;
 }
 .module-fullsize {
-  background-color: red;
-  position: absolute;
+  background-color: gray;
+  position: fixed;
+  width: 100%;
   top: 0px;
   left: 0px;
 }

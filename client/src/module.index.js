@@ -1,4 +1,4 @@
-/*global m, entry, data*/
+/*global m, entry, data, fullsize, gallery*/
 "use strict";
 
 var index = {};
@@ -20,12 +20,12 @@ index.controller = function () {
 
 		for (var i = 0; i < albums.length; i++) {
 			self.galleries.push(new gallery.controller(
-				new data.ImageGallery(albums[i]),
-				{
-					onClick: function (gallery, index) {
-						self.fullSize.showContent(gallery, index);
+					new data.ImageGallery(albums[i]),
+					{
+						onClick: function (gallery, index) {
+							self.fullSize.showContent(gallery, index);
+						}
 					}
-				}
 				)
 			);
 		}

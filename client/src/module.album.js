@@ -9,7 +9,6 @@ album.controller = function () {
 	var name = m.route.param("name");
 	var self = this;
 
-	console.log(name);
 	album.getData().then(function (x) {
 		self.model = new data.Repository(x);
 		self.gallery = new gallery.controller(new data.ImageGallery(self.model.gallery()));
