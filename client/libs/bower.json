@@ -18,7 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "gdata": "c:/Users/vladimir/Projects/picasa/client/src/gdata/",
+	"gdata": "c:/Users/v.talas/Documents/Node/picasa/client/src/gdata/",
     "zepto": "zepto#*",
     "mithril": "mithril#*"
     },

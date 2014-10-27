@@ -1,6 +1,6 @@
 .module-fullsize {
   background-color: red;
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
 }
