@@ -8,14 +8,13 @@ var gulp = require("gulp"),
 	minifyCSS = require('gulp-minify-css'),
 	concat = require("gulp-concat"),
 	karma = require('gulp-karma'),
-	mainBowerFiles = require('main-bower-files'),
 	path = require('path'),
 	isMin = false;
 
 function getLibs() {
 	var min = isMin ? ".min" : "";
 	return [
-			'libs/bower_components/*/*' + min + '.js',
+		'libs/bower_components/*/*' + min + '.js',
 	];
 }
 

@@ -2,7 +2,6 @@
   position: relative;
   width: 50%;
   /* desired width */
-
 }
 .box .content {
   position: absolute;
@@ -38,11 +37,11 @@
 }
 .container_12 .grid_1 {
   float: left;
-  width: 8.333333333333332%;
+  width: 8.33333333%;
 }
 .container_12 .grid_2 {
   float: left;
-  width: 16.666666666666664%;
+  width: 16.66666667%;
 }
 .container_12 .grid_3 {
   float: left;
@@ -50,11 +49,11 @@
 }
 .container_12 .grid_4 {
   float: left;
-  width: 33.33333333333333%;
+  width: 33.33333333%;
 }
 .container_12 .grid_5 {
   float: left;
-  width: 41.66666666666667%;
+  width: 41.66666667%;
 }
 .container_12 .grid_6 {
   float: left;
@@ -62,11 +61,11 @@
 }
 .container_12 .grid_7 {
   float: left;
-  width: 58.333333333333336%;
+  width: 58.33333333%;
 }
 .container_12 .grid_8 {
   float: left;
-  width: 66.66666666666666%;
+  width: 66.66666667%;
 }
 .container_12 .grid_9 {
   float: left;
@@ -74,11 +73,11 @@
 }
 .container_12 .grid_10 {
   float: left;
-  width: 83.33333333333334%;
+  width: 83.33333333%;
 }
 .container_12 .grid_11 {
   float: left;
-  width: 91.66666666666666%;
+  width: 91.66666667%;
 }
 .container_12 .grid_12 {
   float: left;
