@@ -20,7 +20,7 @@ function getLibs() {
 
 var paths = {
 	scripts: [
-		'src/main.js',
+		'src/*/**.js',
 		'src/**.js',
 	],
 	cssLibs: [
