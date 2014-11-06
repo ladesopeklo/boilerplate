@@ -9,9 +9,9 @@ var FullSize;
             this.imageGallery = gallery;
             this.imageGallery.init(imageIndex);
         };
-        controller.prototype.renderImageContainer = function (imageUrl) {
-            return m("div", { style: "width:100px;height:100px;border:1px solid red" }, [
-                m("img", { src: imageUrl })
+        controller.prototype.renderImageContainer = function (image) {
+            return m("div", { style: "border:1px solid red" }, [
+                m("img", { src: image.square(200) })
             ]);
         };
         return controller;
@@ -27,8 +27,9 @@ var FullSize;
                 m("div", { onclick: c.imageGallery.next.bind(c.imageGallery) }, "next"),
                 m("div", { onclick: c.imageGallery.prev.bind(c.imageGallery) }, "prev")
             ]),
-            c.renderImageContainer(c.imageGallery.getImage("s100-c"))
+            c.renderImageContainer(c.imageGallery.getCurrentImage())
         ]);
     }
     FullSize.view = view;
 })(FullSize || (FullSize = {}));
+//# sourceMappingURL=module.FullSize.js.map

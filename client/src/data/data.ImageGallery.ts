@@ -2,7 +2,7 @@
 
 module data {
 	export class ImageGallery {
-		images:Array<any>;
+		images:Array<data.ImageInterface>;
 		name:string;
 		activeImageIndex:number;
 
@@ -11,7 +11,7 @@ module data {
 			this.images = [];
 			this.name = d.name;
 			for (var i = 0; i < images.length; i++) {
-				this.images.push(new data.Image(images[i]));
+				this.images.push(new data.GoogleImage(images[i]));
 			}
 			this.activeImageIndex = 0;
 		}
@@ -34,8 +34,8 @@ module data {
 			}
 		}
 
-		getImage(resolution:string) {
-			return this.images[this.activeImageIndex].getUrl(resolution);
+        getCurrentImage():data.ImageInterface {
+            return this.images[this.activeImageIndex];
 		}
 
 		toJson() {

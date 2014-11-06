@@ -6,7 +6,7 @@ module Gallery {
 	export class controller {
 		settings;
 		name:string;
-		images:Array<data.Image>;
+		images:Array<data.ImageInterface>;
 		imageGallery:data.ImageGallery;
 
 		constructor(imageGallery:data.ImageGallery, settings) {
@@ -17,7 +17,7 @@ module Gallery {
 			this.imageGallery = imageGallery;
 		}
 
-		click(gallery:data.ImageGallery, image:data.Image) {
+		click(gallery:data.ImageGallery, image:data.ImageInterface) {
 			this.settings.onClick(gallery, image);
 		}
 	}
