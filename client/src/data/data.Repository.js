@@ -1,4 +1,3 @@
-///<reference path='../../libs/bower_components/gdata/gdata.photourl.ts'/>
 var data;
 (function (_data) {
     var Repository = (function () {
@@ -16,3 +15,4 @@ var data;
     })();
     _data.Repository = Repository;
 })(data || (data = {}));
+//# sourceMappingURL=data.Repository.js.map

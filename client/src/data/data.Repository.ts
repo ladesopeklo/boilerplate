@@ -1,5 +1,3 @@
-///<reference path='../../libs/bower_components/gdata/gdata.photourl.ts'/>
-
 module data {
 	export class Repository {
 		galleries: any;

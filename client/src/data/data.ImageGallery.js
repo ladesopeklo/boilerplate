@@ -7,7 +7,7 @@ var data;
             this.images = [];
             this.name = d.name;
             for (var i = 0; i < images.length; i++) {
-                this.images.push(new data.Image(images[i]));
+                this.images.push(new data.GoogleImage(images[i]));
             }
             this.activeImageIndex = 0;
         }
@@ -26,8 +26,8 @@ var data;
                 this.activeImageIndex = this.images.length - 1;
             }
         };
-        ImageGallery.prototype.getImage = function (resolution) {
-            return this.images[this.activeImageIndex].getUrl(resolution);
+        ImageGallery.prototype.getCurrentImage = function () {
+            return this.images[this.activeImageIndex];
         };
         ImageGallery.prototype.toJson = function () {
         };
@@ -35,3 +35,4 @@ var data;
     })();
     data.ImageGallery = ImageGallery;
 })(data || (data = {}));
+//# sourceMappingURL=data.ImageGallery.js.map
