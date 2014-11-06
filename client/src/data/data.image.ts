@@ -1,3 +1,4 @@
+///<reference path='data.ImageInterface.ts'/>
 module data {
 	export class GoogleImage implements ImageInterface{
 		url:gData.PhotoUrl;
@@ -18,12 +19,7 @@ module data {
 
 		}
 	}
-
-    export interface ImageInterface {
-        square(size:number):string;
-    }
 }
-
 
 
 

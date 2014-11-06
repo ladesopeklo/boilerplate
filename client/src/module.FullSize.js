@@ -1,5 +1,6 @@
 ///<reference path='..\libs\bower_components\mithril\mithril.d.ts'/>
 ///<reference path='data/data.ImageGallery.ts'/>
+///<reference path='module.ImageRenderer.ts'/>
 var FullSize;
 (function (FullSize) {
     var controller = (function () {
@@ -8,11 +9,7 @@ var FullSize;
         controller.prototype.showContent = function (gallery, imageIndex) {
             this.imageGallery = gallery;
             this.imageGallery.init(imageIndex);
-        };
-        controller.prototype.renderImageContainer = function (image) {
-            return m("div", { style: "border:1px solid red" }, [
-                m("img", { src: image.square(200) })
-            ]);
+            this.imageRenderer = new ImageRenderer.controller();
         };
         return controller;
     })();
@@ -27,9 +24,8 @@ var FullSize;
                 m("div", { onclick: c.imageGallery.next.bind(c.imageGallery) }, "next"),
                 m("div", { onclick: c.imageGallery.prev.bind(c.imageGallery) }, "prev")
             ]),
-            c.renderImageContainer(c.imageGallery.getCurrentImage())
+            ImageRenderer.view(c.imageRenderer.render(c.imageGallery.getCurrentImage()))
         ]);
     }
     FullSize.view = view;
 })(FullSize || (FullSize = {}));
-//# sourceMappingURL=module.FullSize.js.map

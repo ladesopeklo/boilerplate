@@ -20,14 +20,22 @@ module Gallery {
 		click(gallery:data.ImageGallery, image:data.ImageInterface) {
 			this.settings.onClick(gallery, image);
 		}
+
+		renderImage(image:data.ImageInterface, index:number) {
+			return  m("span", {style: "border:1px solid red"}, [
+				m("img", {src: image.square(200), onclick: this.click.bind(this, this.imageGallery, index)})
+			]);
+		}
 	}
 
-	export function view(controller): MithrilVirtualElement {
+
+	export function view(controller):MithrilVirtualElement {
 		return m("div",
 			[
 				m("div", controller.name),
 				controller.images.map(function (item, i) {
-					return m("img", {src: item.getUrl(), onclick: controller.click.bind(controller, controller.imageGallery, i)});
+					return controller.renderImage(item, i);
+//					return m("img", {src: item.getUrl(), onclick: controller.click.bind(controller, controller.imageGallery, i)});
 				})
 			]);
 	}

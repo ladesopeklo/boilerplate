@@ -1,3 +1,4 @@
+///<reference path='data.ImageInterface.ts'/>
 var data;
 (function (_data) {
     var GoogleImage = (function () {
@@ -38,4 +39,3 @@ var gData;
     })();
     gData.PhotoUrl = PhotoUrl;
 })(gData || (gData = {}));
-//# sourceMappingURL=data.image.js.map

@@ -15,4 +15,3 @@ var data;
     })();
     _data.Repository = Repository;
 })(data || (data = {}));
-//# sourceMappingURL=data.Repository.js.map
