@@ -22,7 +22,6 @@ module data {
 }
 
 
-
 module gData {
     export class PhotoUrl{
         url: string;

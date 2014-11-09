@@ -3,6 +3,7 @@
 ///<reference path='data/data.Repository.ts'/>
 ///<reference path='data/data.ImageGallery.ts'/>
 ///<reference path='module.Gallery.ts'/>
+///<reference path='windowZepto.ts'/>
 
 module Index {
 	export class controller {
@@ -13,7 +14,12 @@ module Index {
 		constructor() {
 			this.db = null;
 			this.galleries = [];
-			this.fullSize = new FullSize.controller();
+
+			var x = WindowZepto.getInstance();
+			this.fullSize = new FullSize.controller({
+				windowWidth: x.width,
+				windowHeight: x.height
+			});
 			this.init();
 		}
 		private init() {
@@ -29,6 +35,7 @@ module Index {
 							{
 								onClick: function (gallery, index) {
 									self.fullSize.showContent(gallery, index);
+
 								}
 							}
 						)

@@ -3,13 +3,18 @@
 ///<reference path='data/data.Repository.ts'/>
 ///<reference path='data/data.ImageGallery.ts'/>
 ///<reference path='module.Gallery.ts'/>
+///<reference path='windowZepto.ts'/>
 var Index;
 (function (Index) {
     var controller = (function () {
         function controller() {
             this.db = null;
             this.galleries = [];
-            this.fullSize = new FullSize.controller();
+            var x = WindowZepto.getInstance();
+            this.fullSize = new FullSize.controller({
+                windowWidth: x.width,
+                windowHeight: x.height
+            });
             this.init();
         }
         controller.prototype.init = function () {

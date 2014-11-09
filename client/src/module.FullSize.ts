@@ -1,17 +1,25 @@
 ///<reference path='..\libs\bower_components\mithril\mithril.d.ts'/>
 ///<reference path='data/data.ImageGallery.ts'/>
-///<reference path='module.ImageRenderer.ts'/>
 
 module FullSize {
 
 	export class controller {
 		imageGallery:data.ImageGallery;
-		imageRenderer: ImageRenderer.controller;
+		windowWidth: number;
+		windowHeight: number;
+
+		constructor(settings: any) {
+			this.windowWidth = settings.windowWidth;
+			this.windowHeight = settings.windowHeight;
+		}
 
 		public showContent(gallery, imageIndex:number) {
 			this.imageGallery = gallery;
 			this.imageGallery.init(imageIndex);
-			this.imageRenderer = new ImageRenderer.controller();
+		}
+
+		heightCorrected() {
+			return Math.ceil(this.windowHeight / 100) * 100;
 		}
 	}
 
@@ -26,7 +34,14 @@ module FullSize {
 				m("div", {onclick: c.imageGallery.next.bind(c.imageGallery)}, "next"),
 				m("div", {onclick: c.imageGallery.prev.bind(c.imageGallery)}, "prev")
 			]),
-			ImageRenderer.view(c.imageRenderer.render(c.imageGallery.getCurrentImage()))
+			renderCurrentImage(c)
+		]);
+	}
+
+	function renderCurrentImage(c: FullSize.controller) {
+		var image = c.imageGallery.getCurrentImage();
+		return  m("div", {class: "image-wrap", style: "border:1px solid red"}, [
+			m("img", {src: image.square(c.heightCorrected())})
 		]);
 	}
 }

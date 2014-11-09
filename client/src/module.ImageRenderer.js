@@ -2,7 +2,8 @@
 var ImageRenderer;
 (function (ImageRenderer) {
     var controller = (function () {
-        function controller() {
+        function controller(settings) {
+            this.width = settings.width;
         }
         controller.prototype.render = function (imageData) {
             this.imageData = imageData;
@@ -13,7 +14,7 @@ var ImageRenderer;
     ImageRenderer.controller = controller;
     function view(ctrl) {
         return m("div", { style: "border:1px solid red" }, [
-            m("img", { src: ctrl.imageData.square(200) })
+            m("img", { src: ctrl.imageData.square(ctrl.width) })
         ]);
     }
     ImageRenderer.view = view;

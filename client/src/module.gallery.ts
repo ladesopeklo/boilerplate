@@ -28,7 +28,6 @@ module Gallery {
 		}
 	}
 
-
 	export function view(controller):MithrilVirtualElement {
 		return m("div",
 			[
