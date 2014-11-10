@@ -5,13 +5,8 @@ var data;
         function GoogleImage(data) {
             this.url = new gData.PhotoUrl(data.u, null, null);
         }
-        GoogleImage.prototype.getUrl = function (size) {
-            return this.url.get(size || "s130-c");
-        };
         GoogleImage.prototype.square = function (size) {
             return this.url.get("s" + size + "-c");
-        };
-        GoogleImage.prototype.toJson = function () {
         };
         return GoogleImage;
     })();
@@ -39,3 +34,4 @@ var gData;
     })();
     gData.PhotoUrl = PhotoUrl;
 })(gData || (gData = {}));
+//# sourceMappingURL=data.image.js.map

@@ -1,29 +1,47 @@
 ///<reference path='..\libs\bower_components\mithril\mithril.d.ts'/>
 ///<reference path='data/data.ImageGallery.ts'/>
 ///<reference path='data/data.Repository.ts'/>
+///<reference path='def/zepto.d.ts'/>
+///<reference path='module.FullSize.ts'/>
+///<reference path='windowZepto.ts'/>
 
 module Gallery {
 	export class controller {
-		settings;
+        fullSize:FullSize.controller;
+
 		name:string;
 		images:Array<data.ImageInterface>;
 		imageGallery:data.ImageGallery;
 
-		constructor(imageGallery:data.ImageGallery, settings) {
-			this.settings = settings || {};
+		constructor(imageGallery:data.ImageGallery) {
 			this.name = imageGallery.name;
 			this.images = imageGallery.images;
 
 			this.imageGallery = imageGallery;
-		}
+            this.fullSize = this.prepareFullScreen();
+        }
 
-		click(gallery:data.ImageGallery, image:data.ImageInterface) {
-			this.settings.onClick(gallery, image);
-		}
+        prepareFullScreen() {
+            var x = WindowZepto.getInstance(),
+                fullSize = new FullSize.controller({
+                    windowWidth: x.width,
+                    windowHeight: x.height
+                });
 
-		renderImage(image:data.ImageInterface, index:number) {
+            $(document).bind("keydown", function (e) {
+                fullSize.handleKeyDown(e);
+            });
+            return fullSize;
+        }
+
+		click(index) {
+		    this.fullSize.showContent(this.imageGallery, index);
+        }
+
+
+        renderImage(image:data.ImageInterface, index:number) {
 			return  m("span", {style: "border:1px solid red"}, [
-				m("img", {src: image.square(200), onclick: this.click.bind(this, this.imageGallery, index)})
+				m("img", {src: image.square(200), onclick: this.click.bind(this, index)})
 			]);
 		}
 	}
@@ -34,9 +52,9 @@ module Gallery {
 				m("div", controller.name),
 				controller.images.map(function (item, i) {
 					return controller.renderImage(item, i);
-//					return m("img", {src: item.getUrl(), onclick: controller.click.bind(controller, controller.imageGallery, i)});
-				})
-			]);
+				}),
+                m("div", FullSize.view(controller.fullSize)),
+            ]);
 	}
 }
 

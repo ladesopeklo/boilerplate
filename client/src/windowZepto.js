@@ -23,3 +23,4 @@ var WindowZepto = (function () {
     WindowZepto.instance = null;
     return WindowZepto;
 })();
+//# sourceMappingURL=windowZepto.js.map

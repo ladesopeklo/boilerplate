@@ -4,4 +4,35 @@
   width: 100%;
   top: 0px;
   left: 0px;
+  height: 100%;
+}
+.module-fullsize .actions {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  z-index: 2;
+  color: white;
+  font-size: 200%;
+}
+.module-fullsize .actions .next {
+  float: right;
+}
+.module-fullsize .actions .prev {
+  float: left;
+}
+.module-fullsize .actions .next,
+.module-fullsize .actions .prev {
+  cursor: pointer;
+}
+.module-fullsize .info {
+  float: left;
+}
+.module-fullsize .image-wrap {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+.module-fullsize .image-wrap img {
+  max-height: 100%;
+  max-width: 100%;
 }

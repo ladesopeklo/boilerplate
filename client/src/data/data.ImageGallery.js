@@ -3,6 +3,7 @@ var data;
 (function (data) {
     var ImageGallery = (function () {
         function ImageGallery(d) {
+            this.circular = false;
             var images = d.images || [];
             this.images = [];
             this.name = d.name;
@@ -17,21 +18,28 @@ var data;
         ImageGallery.prototype.next = function () {
             this.activeImageIndex++;
             if (this.activeImageIndex === this.images.length) {
+                if (!this.circular) {
+                    this.activeImageIndex--;
+                    return;
+                }
                 this.activeImageIndex = 0;
             }
         };
         ImageGallery.prototype.prev = function () {
             this.activeImageIndex--;
             if (this.activeImageIndex < 0) {
+                if (!this.circular) {
+                    this.activeImageIndex++;
+                    return;
+                }
                 this.activeImageIndex = this.images.length - 1;
             }
         };
         ImageGallery.prototype.getCurrentImage = function () {
             return this.images[this.activeImageIndex];
         };
-        ImageGallery.prototype.toJson = function () {
-        };
         return ImageGallery;
     })();
     data.ImageGallery = ImageGallery;
 })(data || (data = {}));
+//# sourceMappingURL=data.ImageGallery.js.map

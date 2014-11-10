@@ -7,17 +7,9 @@ module data {
 			this.url = new gData.PhotoUrl(data.u, null, null);
 		}
 
-		getUrl(size):string {
-			return this.url.get(size || "s130-c");
-		}
-
         square(size:number) {
             return this.url.get("s" + size + "-c");
         }
-
-		toJson() {
-
-		}
 	}
 }
 
