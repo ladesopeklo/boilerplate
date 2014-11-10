@@ -8,3 +8,6 @@ client/css/grid.css
 client/libs/bower_components/**
 client/src/**.map
 client/src/**.map
+client/src/**/*.map
+client/src/module.FullSize.js
+client/src/module.Gallery.js
