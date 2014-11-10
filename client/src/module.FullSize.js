@@ -31,6 +31,19 @@ var FullSize;
         controller.prototype.heightCorrected = function () {
             return Math.ceil(this.windowHeight / 100) * 100;
         };
+        controller.prototype.actionNext = function (element, isInitialized, context) {
+            if (!isInitialized) {
+            }
+            this.imageGallery.next();
+        };
+        controller.prototype.imageLoad = function (element, isInitialized, context) {
+            if (!isInitialized) {
+                $(element).css("opacity", 0);
+                $(element).bind("load", function () {
+                    $(element).css("opacity", 1);
+                });
+            }
+        };
         return controller;
     })();
     FullSize.controller = controller;
@@ -39,19 +52,34 @@ var FullSize;
             return;
         }
         return m("div", { 'class': "module-fullsize" }, [
-            m("div", c.imageGallery.name),
-            m("div", [
-                m("div", { onclick: c.imageGallery.next.bind(c.imageGallery) }, "next"),
-                m("div", { onclick: c.imageGallery.prev.bind(c.imageGallery) }, "prev")
+            renderCurrentImage(c),
+            m("div", { 'class': "actions" }, [
+                m("div", { 'class': "container_12" }, [
+                    m("div", { 'class': "grid_1" }, prevButton(c)),
+                    m("div", { 'class': "grid_10" }, m("div", c.imageGallery.name)),
+                    m("div", { 'class': "grid_1" }, nextButton(c))
+                ]),
             ]),
-            renderCurrentImage(c)
         ]);
     }
     FullSize.view = view;
+    function nextButton(c) {
+        return m("div", { 'class': "next", config: c.actionNext.bind(c) }, "next");
+    }
+    function prevButton(c) {
+        return m("div", { 'class': "prev", onclick: c.imageGallery.prev.bind(c.imageGallery) }, "prev");
+    }
     function renderCurrentImage(c) {
         var image = c.imageGallery.getCurrentImage();
-        return m("div", { class: "image-wrap", style: "border:1px solid red" }, [
-            m("img", { src: image.square(c.heightCorrected()) })
+        return m("div", {
+            'class': "image-wrap",
+            style: "border:1px solid green"
+        }, [
+            m("img", {
+                src: image.square(c.heightCorrected()),
+                config: c.imageLoad,
+                style: "border:1px solid red"
+            })
         ]);
     }
 })(FullSize || (FullSize = {}));

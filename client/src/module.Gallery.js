@@ -45,4 +45,4 @@ var Gallery;
     }
     Gallery.view = view;
 })(Gallery || (Gallery = {}));
-//# sourceMappingURL=module.gallery.js.map
+//# sourceMappingURL=module.Gallery.js.map

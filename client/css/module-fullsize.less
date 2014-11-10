@@ -1,18 +1,40 @@
 .module-fullsize {
-  background-color: gray;
-  position: fixed;
-  width: 100%;
-  top:0px;
-  left:0px;
+	background-color: gray;
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	left: 0px;
 
-  height: 100%;
+	height: 100%;
+	.actions {
+		width: 100%;
+		position: absolute;
+		bottom: 0px;
+		z-index: 2;
+		color: white;
+		font-size: 200%;
+		.next {
+			float: right;
+		}
+		.prev {
+			float: left;
+		}
+		.next, .prev {
+			cursor: pointer;
+		}
+	}
+	.info {
+		float: left;
+	}
 
-  .image-wrap {
-    height: 90%;
-    img {
-      max-height: 100%;
-      max-width: 100%;
+	.image-wrap {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		img {
+			max-height: 100%;
+			max-width: 100%;
 
-    }
-  }
+		}
+	}
 }
