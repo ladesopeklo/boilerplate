@@ -35,3 +35,4 @@ var data;
     })();
     data.ImageGallery = ImageGallery;
 })(data || (data = {}));
+//# sourceMappingURL=data.ImageGallery.js.map

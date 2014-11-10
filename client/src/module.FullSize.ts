@@ -18,13 +18,31 @@ module FullSize {
 			this.imageGallery.init(imageIndex);
 		}
 
+        public handleKeyDown(e) {
+            if (!this.imageGallery) {
+                return ;
+            }
+            if (e.keyCode === 39) {
+                this.imageGallery.next();
+                m.redraw();
+            }
+            if (e.keyCode === 37) {
+                this.imageGallery.prev();
+                m.redraw();
+            }
+            if (e.keyCode === 27) {
+                this.imageGallery = undefined;
+                m.redraw();
+            }
+        }
+
 		heightCorrected() {
 			return Math.ceil(this.windowHeight / 100) * 100;
 		}
 	}
 
 	export function view(c: FullSize.controller) : MithrilVirtualElement {
-		if (c.imageGallery === undefined) {
+		if (!c.imageGallery) {
 			return;
 		}
 

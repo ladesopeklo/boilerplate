@@ -11,6 +11,23 @@ var FullSize;
             this.imageGallery = gallery;
             this.imageGallery.init(imageIndex);
         };
+        controller.prototype.handleKeyDown = function (e) {
+            if (!this.imageGallery) {
+                return;
+            }
+            if (e.keyCode === 39) {
+                this.imageGallery.next();
+                m.redraw();
+            }
+            if (e.keyCode === 37) {
+                this.imageGallery.prev();
+                m.redraw();
+            }
+            if (e.keyCode === 27) {
+                this.imageGallery = undefined;
+                m.redraw();
+            }
+        };
         controller.prototype.heightCorrected = function () {
             return Math.ceil(this.windowHeight / 100) * 100;
         };
@@ -18,7 +35,7 @@ var FullSize;
     })();
     FullSize.controller = controller;
     function view(c) {
-        if (c.imageGallery === undefined) {
+        if (!c.imageGallery) {
             return;
         }
         return m("div", { 'class': "module-fullsize" }, [
@@ -38,3 +55,4 @@ var FullSize;
         ]);
     }
 })(FullSize || (FullSize = {}));
+//# sourceMappingURL=module.FullSize.js.map

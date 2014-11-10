@@ -39,3 +39,4 @@ var gData;
     })();
     gData.PhotoUrl = PhotoUrl;
 })(gData || (gData = {}));
+//# sourceMappingURL=data.image.js.map

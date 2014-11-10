@@ -10,24 +10,18 @@ var Index;
         function controller() {
             this.db = null;
             this.galleries = [];
-            var x = WindowZepto.getInstance();
-            this.fullSize = new FullSize.controller({
-                windowWidth: x.width,
-                windowHeight: x.height
-            });
             this.init();
         }
+        controller.prototype.prepareGallery = function (album) {
+            return new Gallery.controller(new data.ImageGallery(album));
+        };
         controller.prototype.init = function () {
             var self = this;
             this.getData().then(function (x) {
                 self.db = new data.Repository(x);
                 var albums = self.db.galleriesAll();
                 for (var i = 0; i < albums.length; i++) {
-                    self.galleries.push(new Gallery.controller(new data.ImageGallery(albums[i]), {
-                        onClick: function (gallery, index) {
-                            self.fullSize.showContent(gallery, index);
-                        }
-                    }));
+                    self.galleries.push(self.prepareGallery(albums[i]));
                 }
             });
         };
@@ -42,8 +36,8 @@ var Index;
             ctrl.galleries.map(function (item) {
                 return m("div", Gallery.view(item));
             }),
-            m("div", FullSize.view(ctrl.fullSize)),
         ];
     }
     Index.view = view;
 })(Index || (Index = {}));
+//# sourceMappingURL=module.Index.js.map
