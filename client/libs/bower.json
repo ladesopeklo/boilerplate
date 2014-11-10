@@ -18,6 +18,7 @@
     "tests"
   ],
   "dependencies": {
+    "velocity": "velocity#*",
     "zepto": "zepto#*",
     "mithril": "mithril#*"
     },

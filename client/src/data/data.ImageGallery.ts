@@ -34,7 +34,6 @@ module data {
 				this.activeImageIndex = 0;
 			}
 		}
-
 		prev() {
 			this.activeImageIndex--;
 
@@ -48,6 +47,9 @@ module data {
 			}
 		}
 
+		isOnFirstPosition() {
+			return this.activeImageIndex === 0;
+		}
         getCurrentImage():data.ImageInterface {
             return this.images[this.activeImageIndex];
 		}

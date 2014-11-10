@@ -1,100 +1,121 @@
 ///<reference path='..\libs\bower_components\mithril\mithril.d.ts'/>
 ///<reference path='data/data.ImageGallery.ts'/>
 
+
+declare var Velocity: any;
+
 module FullSize {
 
-    export class controller {
-        imageGallery:data.ImageGallery;
-        windowWidth:number;
-        windowHeight:number;
+	export class controller {
+		imageGallery:data.ImageGallery;
+		windowWidth:number;
+		windowHeight:number;
 
-        constructor(settings:any) {
-            this.windowWidth = settings.windowWidth;
-            this.windowHeight = settings.windowHeight;
-        }
+		constructor(settings:any) {
+			this.windowWidth = settings.windowWidth;
+			this.windowHeight = settings.windowHeight;
+		}
 
-        public showContent(gallery, imageIndex:number) {
-            this.imageGallery = gallery;
-            this.imageGallery.init(imageIndex);
-        }
+		public showContent(gallery, imageIndex:number) {
+			this.imageGallery = gallery;
+			this.imageGallery.init(imageIndex);
+		}
 
-        public handleKeyDown(e) {
-            if (!this.imageGallery) {
-                return;
-            }
-            if (e.keyCode === 39) {
-                this.imageGallery.next();
-                m.redraw();
-            }
-            if (e.keyCode === 37) {
-                this.imageGallery.prev();
-                m.redraw();
-            }
-            if (e.keyCode === 27) {
-                this.imageGallery = undefined;
-                m.redraw();
-            }
-        }
+		public handleKeyDown(e) {
+			if (!this.imageGallery) {
+				return;
+			}
+			if (e.keyCode === 39) {
+				this.imageGallery.next();
+				m.redraw();
+			}
+			if (e.keyCode === 37) {
+				this.imageGallery.prev();
+				m.redraw();
+			}
+			if (e.keyCode === 27) {
+				this.imageGallery = undefined;
+				m.redraw();
+			}
+		}
 
-        heightCorrected() {
-            return Math.ceil(this.windowHeight / 100) * 100;
-        }
+		heightCorrected() {
+			return Math.ceil(this.windowHeight / 100) * 100;
+		}
 
-        actionNext(element, isInitialized, context) {
-            if (!isInitialized) {
-                //load
-            }
+		actionNext(element, isInitialized, context) {
+			if (!isInitialized) {
+			}
+		}
 
-            this.imageGallery.next();
-        }
-        imageLoad(element, isInitialized, context) {
-            if (!isInitialized) {
-                $(element).css("opacity", 0);
-                $(element).bind("load", function () {
-                    $(element).css("opacity", 1);
-                });
-            }
-        }
-    }
+		actionToolbar(element, isInitialized, context) {
+			if (!isInitialized) {
+				element.style.opacity = 0;
+				Velocity(element, {opacity: 1});
+			}
+		}
 
-    export function view(c:FullSize.controller):MithrilVirtualElement {
-        if (!c.imageGallery) {
-            return;
-        }
+		
+		prevButtonConfig(element, isInitialized, context) {
+			if (!isInitialized) {
+				element.style.opacity = 0;
+				Velocity(element, {opacity: 1});
+			}
+		}
 
-        return m("div", {'class': "module-fullsize"}, [
-            renderCurrentImage(c),
-            m("div", {'class': "actions" }, [
-                m("div", {'class': "container_12"}, [
-                    m("div", {'class': "grid_1"}, prevButton(c)),
-                    m("div", {'class': "grid_10"}, m("div", c.imageGallery.name)),
-                    m("div", {'class': "grid_1"}, nextButton(c))
-                ]),
-            ]),
-        ]);
-    }
+		imageLoad(element, isInitialized, context) {
+			if (!isInitialized) {
+				$(element).css("opacity", 0);
+				$(element).bind("load", function () {
+					$(element).css("opacity", 1);
+				});
+			}
+		}
+	}
 
-    function nextButton(c) {
-        return m("div", {'class': "next", config: c.actionNext.bind(c)}, "next");
-    }
-    function prevButton(c) {
-        return m("div", {'class': "prev", onclick: c.imageGallery.prev.bind(c.imageGallery)}, "prev");
-    }
+	export function view(c:FullSize.controller):MithrilVirtualElement {
+		if (!c.imageGallery) {
+			return;
+		}
 
-    function renderCurrentImage(c:FullSize.controller) {
-        var image = c.imageGallery.getCurrentImage();
-        return  m("div", {
-            'class': "image-wrap",
-            style: "border:1px solid green"
-        }, [
+		return m("div", {'class': "module-fullsize"}, [
+			renderCurrentImage(c),
+			m("div", {'class': "actions" , config: c.actionToolbar}, [
+				m("div", {'class': "container_12"}, [
+					m("div", {'class': "grid_1"}, prevButton(c)),
+					m("div", {'class': "grid_10"}, m("div", c.imageGallery.name)),
+					m("div", {'class': "grid_1"}, nextButton(c))
+				]),
+			]),
+		]);
+	}
 
-            m("img", {
-                src: image.square(c.heightCorrected()),
-                config: c.imageLoad,
-                style: "border:1px solid red"
-            })
-        ]);
-    }
+	function nextButton(c) {
+		return m("div", {
+				'class': "next",
+				config: c.actionNext,
+				onclick: c.imageGallery.next.bind(c.imageGallery)},
+			"next");
+	}
+
+	function prevButton(c) {
+		return m("div", {'class': "prev",
+			config: c.prevButtonConfig.bind(c),
+			onclick: c.imageGallery.prev.bind(c.imageGallery)}, "prev");
+	}
+
+	function renderCurrentImage(c:FullSize.controller) {
+		var image = c.imageGallery.getCurrentImage();
+		return  m("div", {
+			'class': "image-wrap"
+		}, [
+
+			m("img", {
+				src: image.square(c.heightCorrected()),
+				config: c.imageLoad
+			})
+		]);
+	}
 }
 
 

@@ -2,6 +2,7 @@
   position: relative;
   width: 50%;
   /* desired width */
+
 }
 .box .content {
   position: absolute;
@@ -37,11 +38,11 @@
 }
 .container_12 .grid_1 {
   float: left;
-  width: 8.33333333%;
+  width: 8.333333333333332%;
 }
 .container_12 .grid_2 {
   float: left;
-  width: 16.66666667%;
+  width: 16.666666666666664%;
 }
 .container_12 .grid_3 {
   float: left;
@@ -49,11 +50,11 @@
 }
 .container_12 .grid_4 {
   float: left;
-  width: 33.33333333%;
+  width: 33.33333333333333%;
 }
 .container_12 .grid_5 {
   float: left;
-  width: 41.66666667%;
+  width: 41.66666666666667%;
 }
 .container_12 .grid_6 {
   float: left;
@@ -61,11 +62,11 @@
 }
 .container_12 .grid_7 {
   float: left;
-  width: 58.33333333%;
+  width: 58.333333333333336%;
 }
 .container_12 .grid_8 {
   float: left;
-  width: 66.66666667%;
+  width: 66.66666666666666%;
 }
 .container_12 .grid_9 {
   float: left;
@@ -73,11 +74,11 @@
 }
 .container_12 .grid_10 {
   float: left;
-  width: 83.33333333%;
+  width: 83.33333333333334%;
 }
 .container_12 .grid_11 {
   float: left;
-  width: 91.66666667%;
+  width: 91.66666666666666%;
 }
 .container_12 .grid_12 {
   float: left;
@@ -89,6 +90,7 @@
   width: 100%;
   top: 0px;
   left: 0px;
+  z-index: 1000;
   height: 100%;
 }
 .module-fullsize .actions {
@@ -109,13 +111,20 @@
 .module-fullsize .actions .prev {
   cursor: pointer;
 }
+.module-fullsize .actions .next:active,
+.module-fullsize .actions .prev:active {
+  color: red;
+}
 .module-fullsize .info {
   float: left;
 }
 .module-fullsize .image-wrap {
   position: absolute;
   top: 0;
-  height: 100%;
+  height: 99%;
+  margin: 2px;
+  width: 100%;
+  text-align: center;
 }
 .module-fullsize .image-wrap img {
   max-height: 100%;
@@ -145,6 +154,7 @@ html {
   width: 100%;
 }
 .full-body.home {
+  overflow-x: hidden;
   background: url("/resources/img/home.png") center;
   background: url("/resources/img/home2.png") center;
 }

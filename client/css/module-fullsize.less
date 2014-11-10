@@ -5,6 +5,7 @@
 	top: 0px;
 	left: 0px;
 
+	z-index: 1000;
 	height: 100%;
 	.actions {
 		width: 100%;
@@ -18,9 +19,13 @@
 		}
 		.prev {
 			float: left;
+
 		}
 		.next, .prev {
 			cursor: pointer;
+		}
+		.next:active, .prev:active {
+			color:red;
 		}
 	}
 	.info {
@@ -30,7 +35,10 @@
 	.image-wrap {
 		position: absolute;
 		top: 0;
-		height: 100%;
+		height: 99%;
+		margin: 2px;
+		width: 100%;
+		text-align: center;
 		img {
 			max-height: 100%;
 			max-width: 100%;
