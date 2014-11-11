@@ -20,7 +20,8 @@
   "dependencies": {
     "velocity": "velocity#*",
     "zepto": "zepto#*",
-    "mithril": "mithril#*"
+    "mithril": "mithril#*",
+    "bootstrap-material-design": "bootstrap-material-design#*"
     },
   "moduleType": []
 }

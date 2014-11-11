@@ -15,3 +15,5 @@ client/src/data/data.image.js
 client/src/data/data.ImageGallery.js
 client/src/data/data.ImageInterface.js
 client/src/module.Index.js
+client/src/data/data.Repository.js
+client/src/windowZepto.js
