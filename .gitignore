@@ -17,3 +17,4 @@ client/src/data/data.ImageInterface.js
 client/src/module.Index.js
 client/src/data/data.Repository.js
 client/src/windowZepto.js
+client/css/custom.css

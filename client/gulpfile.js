@@ -10,40 +10,33 @@ var gulp = require("gulp"),
 	karma = require('gulp-karma'),
 	path = require('path'),
 	debug = require('gulp-filelog'),
-	isMin = true;
+	isMin = false;
 
-function getLibs() {
-	var min = isMin ? ".min" : "",
-		excludeMin = isMin ? "" : "!libs/bower_components/**/*.min.*";
+var excludeMin = isMin ? null : "!libs/bower_components/**/*.min.*",
+	min = isMin ? ".min" : "",
+	paths = {
+		scripts: [
+			'src/*/**.js',
+			'src/**.js'
+		],
+		jsLibs: [
+				'libs/bower_components/**/*' + min + '.js',
 
-	return [
-		'libs/bower_components/**/*' + min + '.js',
-
-		'!libs/bower_components/bootstrap-material-design/scripts/**',
-		'!libs/bower_components/bootstrap-material-design/Gruntfile.js',
-		'!libs/bower_components/jquery/**',
-		excludeMin
-	];
-}
-
-var excludeMinified = isMin ? null : "!libs/bower_components/**/*.min.*",
-	min = isMin ? ".min" : "";
-
-var paths = {
-	scripts: [
-		'src/*/**.js',
-		'src/**.js'
-	],
-	cssLibs: [
-		"libs/**/*" + min + ".css",
-		'!libs/bower_components/bootstrap-material-design/less/**'
-	],
-	less: [
-		'css/*.less'
-	]
-};
-if (excludeMinified) {
-	paths.cssLibs.push(excludeMinified);
+			'!libs/bower_components/bootstrap-material-design/scripts/**',
+			'!libs/bower_components/bootstrap-material-design/Gruntfile.js',
+			'!libs/bower_components/jquery/**'
+		],
+		cssLibs: [
+			"libs/**/*" + min + ".css",
+			'!libs/bower_components/bootstrap-material-design/less/**'
+		],
+		less: [
+			'css/*.less'
+		]
+	};
+if (excludeMin) {
+	paths.cssLibs.push(excludeMin);
+	paths.jsLibs.push(excludeMin);
 }
 
 
@@ -58,7 +51,7 @@ gulp.task("scripts", function () {
 });
 
 gulp.task("js-libs", function () {
-	gulp.src(getLibs())
+	gulp.src(paths.jsLibs)
 		.pipe(debug("js-libs"))
 		.pipe(concat("app.libs.js"))
 		.pipe(gulp.dest("build"));
