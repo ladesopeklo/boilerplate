@@ -9,27 +9,35 @@ var gulp = require("gulp"),
 	concat = require("gulp-concat"),
 	karma = require('gulp-karma'),
 	path = require('path'),
+	debug = require('gulp-filelog'),
 	isMin = false;
 
-function getLibs() {
-	var min = isMin ? ".min" : "";
-	return [
-		'libs/bower_components/*/*' + min + '.js',
-	];
-}
+var excludeMin = isMin ? null : "!libs/bower_components/**/*.min.*",
+	min = isMin ? ".min" : "",
+	paths = {
+		scripts: [
+			'src/*/**.js',
+			'src/**.js'
+		],
+		jsLibs: [
+				'libs/bower_components/**/*' + min + '.js',
 
-var paths = {
-	scripts: [
-		'src/*/**.js',
-		'src/**.js',
-	],
-	cssLibs: [
-		"libs/*.css"
-	],
-	less: [
-		'css/*.less'
-	]
-};
+			'!libs/bower_components/bootstrap-material-design/scripts/**',
+			'!libs/bower_components/bootstrap-material-design/Gruntfile.js',
+			'!libs/bower_components/jquery/**'
+		],
+		cssLibs: [
+			"libs/**/*" + min + ".css",
+			'!libs/bower_components/bootstrap-material-design/less/**'
+		],
+		less: [
+			'css/*.less'
+		]
+	};
+if (excludeMin) {
+	paths.cssLibs.push(excludeMin);
+	paths.jsLibs.push(excludeMin);
+}
 
 
 gulp.task("scripts", function () {
@@ -43,13 +51,15 @@ gulp.task("scripts", function () {
 });
 
 gulp.task("js-libs", function () {
-	gulp.src(getLibs())
+	gulp.src(paths.jsLibs)
+		.pipe(debug("js-libs"))
 		.pipe(concat("app.libs.js"))
 		.pipe(gulp.dest("build"));
 });
 
 gulp.task("css-libs", function () {
 	gulp.src(paths.cssLibs)
+		.pipe(debug("csslibs---------------"))
 		.pipe(concat("app.libs.css"))
 		.pipe(gulp.dest("build"));
 });

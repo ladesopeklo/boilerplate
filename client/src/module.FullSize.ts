@@ -55,7 +55,7 @@ module FullSize {
 			}
 		}
 
-		
+
 		prevButtonConfig(element, isInitialized, context) {
 			if (!isInitialized) {
 				element.style.opacity = 0;
@@ -83,7 +83,7 @@ module FullSize {
 			m("div", {'class': "actions" , config: c.actionToolbar}, [
 				m("div", {'class': "container_12"}, [
 					m("div", {'class': "grid_1"}, prevButton(c)),
-					m("div", {'class': "grid_10"}, m("div", c.imageGallery.name)),
+					m("div", {'class': "grid_10"}, galleryInfoView(c.imageGallery)),
 					m("div", {'class': "grid_1"}, nextButton(c))
 				]),
 			]),
@@ -97,6 +97,11 @@ module FullSize {
 				onclick: c.imageGallery.next.bind(c.imageGallery)},
 			"next");
 	}
+
+	function galleryInfoView(imageGallery:data.ImageGallery):MithrilVirtualElement {
+        var info = (imageGallery.getCurrentIndex() + 1) + "/" + imageGallery.imagesCount;
+        return m("div", imageGallery.name + info);
+    }
 
 	function prevButton(c) {
 		return m("div", {'class': "prev",
