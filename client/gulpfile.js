@@ -20,7 +20,7 @@ var excludeMin = isMin ? null : "!libs/bower_components/**/*.min.*",
 			'src/**.js'
 		],
 		jsLibs: [
-				'libs/bower_components/**/*' + min + '.js',
+			'libs/bower_components/**/*' + min + '.js',
 
 			'!libs/bower_components/bootstrap-material-design/scripts/**',
 			'!libs/bower_components/bootstrap-material-design/Gruntfile.js',
