@@ -91,8 +91,7 @@ module FullSize {
 	}
 
 	function nextButton(c) {
-		return m("div", {
-				'class': "next",
+        return m("paper-icon-button", {'icon': "arrow-forward", "title": "arrow-back",
 				config: c.actionNext,
 				onclick: c.imageGallery.next.bind(c.imageGallery)},
 			"next");
@@ -104,7 +103,7 @@ module FullSize {
     }
 
 	function prevButton(c) {
-		return m("div", {'class': "prev",
+        return m("paper-icon-button", {'icon': "arrow-back", "title": "arrow-back",
 			config: c.prevButtonConfig.bind(c),
 			onclick: c.imageGallery.prev.bind(c.imageGallery)}, "prev");
 	}

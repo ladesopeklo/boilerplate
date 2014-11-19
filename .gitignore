@@ -18,3 +18,4 @@ client/src/module.Index.js
 client/src/data/data.Repository.js
 client/src/windowZepto.js
 client/css/custom.css
+client/libs/polymer/bower_components/**
