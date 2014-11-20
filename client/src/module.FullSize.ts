@@ -10,6 +10,7 @@ module FullSize {
 		imageGallery:data.ImageGallery;
 		windowWidth:number;
 		windowHeight:number;
+        xx: any;
 
 		constructor(settings:any) {
 			this.windowWidth = settings.windowWidth;
@@ -61,6 +62,7 @@ module FullSize {
 				element.style.opacity = 0;
 				Velocity(element, {opacity: 1});
 			}
+            this.xx = element;
 		}
 
 		imageLoad(element, isInitialized, context) {
@@ -83,7 +85,8 @@ module FullSize {
 			m("div", {'class': "actions" , config: c.actionToolbar}, [
 				m("div", {'class': "container_12"}, [
 					m("div", {'class': "grid_1"}, prevButton(c)),
-					m("div", {'class': "grid_10"}, galleryInfoView(c.imageGallery)),
+					m("div", {'class': "grid_9"}, c.imageGallery.name),
+					m("div", {'class': "grid_1"}, galleryInfoView(c.imageGallery)),
 					m("div", {'class': "grid_1"}, nextButton(c))
 				]),
 			]),
@@ -91,8 +94,7 @@ module FullSize {
 	}
 
 	function nextButton(c) {
-		return m("div", {
-				'class': "next",
+        return m("paper-icon-button", {'icon': "arrow-forward", "title": "arrow-back",
 				config: c.actionNext,
 				onclick: c.imageGallery.next.bind(c.imageGallery)},
 			"next");
@@ -100,11 +102,11 @@ module FullSize {
 
 	function galleryInfoView(imageGallery:data.ImageGallery):MithrilVirtualElement {
         var info = (imageGallery.getCurrentIndex() + 1) + "/" + imageGallery.imagesCount;
-        return m("div", imageGallery.name + info);
+        return m("div", info);
     }
 
 	function prevButton(c) {
-		return m("div", {'class': "prev",
+        return m("paper-icon-button", {'icon': "arrow-back", "title": "arrow-back",
 			config: c.prevButtonConfig.bind(c),
 			onclick: c.imageGallery.prev.bind(c.imageGallery)}, "prev");
 	}

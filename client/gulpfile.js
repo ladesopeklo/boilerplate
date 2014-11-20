@@ -21,13 +21,19 @@ var excludeMin = isMin ? null : "!libs/bower_components/**/*.min.*",
 		],
 		jsLibs: [
 			'libs/bower_components/**/*' + min + '.js',
-
 			'!libs/bower_components/bootstrap-material-design/scripts/**',
 			'!libs/bower_components/bootstrap-material-design/Gruntfile.js',
+
+			'!libs/bower_components/webcomponentsjs/webcomponents-lite.js',
+			'!libs/bower_components/webcomponentsjs/ShadowDOM.js',
+			'!libs/bower_components/webcomponentsjs/HTMLImports.js',
+			'!libs/bower_components/webcomponentsjs/CustomElements.js',
+			'!libs/bower_components/polymer/polymer.js',
+
 			'!libs/bower_components/jquery/**'
 		],
 		cssLibs: [
-			"libs/**/*" + min + ".css",
+			"libs/bower_components/*" + min + ".css",
 			'!libs/bower_components/bootstrap-material-design/less/**'
 		],
 		less: [

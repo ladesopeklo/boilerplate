@@ -25,28 +25,34 @@ module data {
 			this.activeImageIndex = index;
 		}
 
+        getIndex(offset) {
+            var index = this.activeImageIndex + offset;
+
+            if (index === this.images.length) {
+                if (!this.circular) {
+                    return this.activeImageIndex;
+                }
+                index = 0;
+            }
+
+            if (index < 0) {
+                if (!this.circular) {
+                    return this.activeImageIndex;
+                }
+                index = this.images.length - 1;
+            }
+
+            return index;
+
+        }
+
 		next() {
-			this.activeImageIndex++;
-			if (this.activeImageIndex === this.images.length) {
-                if (!this.circular) {
-                    this.activeImageIndex--;
-                    return ;
-                }
-
-				this.activeImageIndex = 0;
-			}
+			this.activeImageIndex = this.getIndex(1);
 		}
+
 		prev() {
-			this.activeImageIndex--;
+			this.activeImageIndex = this.getIndex(-1);
 
-			if (this.activeImageIndex < 0) {
-                if (!this.circular) {
-                    this.activeImageIndex++;
-                    return ;
-                }
-
-				this.activeImageIndex = this.images.length - 1;
-			}
 		}
 
 		isOnFirstPosition() {

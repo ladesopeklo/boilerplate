@@ -18,3 +18,5 @@ client/src/module.Index.js
 client/src/data/data.Repository.js
 client/src/windowZepto.js
 client/css/custom.css
+client/libs/polymer/bower_components/**
+client/css/startbootstrap-grayscale-1.0.0/**
