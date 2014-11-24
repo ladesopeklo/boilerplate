@@ -15,10 +15,10 @@ html {
 
 .footer {
 	border-top: 0.5em solid @color3;
-	background-color:@color4;
+	background-color: @color4;
 	color: #EDF6EE;
 
-	.content  {
+	.content {
 		border-top: 0.1em solid @color2;
 		padding: 3em;
 		&.fill {
@@ -39,13 +39,15 @@ html {
 		background: url("/resources/img/home.png") center;
 		background: url("/resources/img/home2.png") center;
 		.home-menu {
+			color: @color4;
 			position: absolute;
 			top: 70%;
+			width: 100%;
 		}
 		.home-menu .content {
-			color: #151101;
-			&:hover{
-				color:#B3204D;
+			cursor: pointer;
+			&:hover {
+				color: #B3204D;
 			}
 			font-size: 2em;
 			font-weight: 100;
@@ -64,7 +66,7 @@ html {
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
-	width:100%;
+	width: 100%;
 
 	.logo-wrap {
 		width: 100%;
@@ -73,7 +75,7 @@ html {
 	}
 	.dlabu {
 		font-size: 1em;
-		color:@color3;
+		color: @color3;
 		left: 16.6em;
 		display: block;
 		position: relative;
@@ -90,14 +92,14 @@ html {
 		}
 		.left {
 			text-align: right;
-			h1{
+			h1 {
 				color: black;
 				padding-right: 0.2em;
 			}
 		}
 		.right {
 			text-align: left;
-			h1{
+			h1 {
 				padding-left: 0.2em;
 				display: inline-block;
 				color: white;
@@ -107,11 +109,24 @@ html {
 ;
 }
 
-
 .render-image {
-	border:1px solid red;
-	float:left;
+	border: 1px solid red;
+	float: left;
 	border-radius: 50%;
 	overflow: hidden;
 
+}
+
+.nav-content {
+}
+
+.home-menu {
+	.nav-content-scrolled {
+		background-color: @color4;
+		display: none;
+		color: white;
+		position: fixed;
+		top: -50px;
+		opacity: 0;
+	}
 }
