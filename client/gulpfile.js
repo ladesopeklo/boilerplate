@@ -20,9 +20,13 @@ var excludeMin = isMin ? null : "!libs/bower_components/**/*.min.*",
 			'src/**.js'
 		],
 		jsLibs: [
+			'libs/bower_components/zepto/zepto.js',
 			'libs/bower_components/**/*' + min + '.js',
-			'!libs/bower_components/bootstrap-material-design/scripts/**',
-			'!libs/bower_components/bootstrap-material-design/Gruntfile.js',
+
+			'!libs/bower_components/bootstrap/js/*',
+			'!libs/bower_components/bootstrap/Grunt*',
+			'!libs/bower_components/bootstrap/grunt/*',
+			'!libs/bower_components/bootstrap/dist/js/npm.js',
 
 			'!libs/bower_components/webcomponentsjs/webcomponents-lite.js',
 			'!libs/bower_components/webcomponentsjs/ShadowDOM.js',
