@@ -1572,6 +1572,8 @@ interface ZeptoCollection {
 	* @param options Animation options.
 	**/
 	animate(properties: any, options: ZeptoAnimateSettings): ZeptoCollection;
+
+	velocity(properties: any): ZeptoCollection;
 }
 
 interface ZeptoAjaxSettings {
