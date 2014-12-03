@@ -19,3 +19,4 @@ var Navibar;
     }
     Navibar.view = view;
 })(Navibar || (Navibar = {}));
+//# sourceMappingURL=module.navibar.js.map

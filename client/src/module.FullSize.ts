@@ -52,15 +52,14 @@ module FullSize {
 		actionToolbar(element, isInitialized, context) {
 			if (!isInitialized) {
 				element.style.opacity = 0;
-				Velocity(element, {opacity: 1});
+				$(element).velocity({opacity: 1});
 			}
 		}
-
 
 		prevButtonConfig(element, isInitialized, context) {
 			if (!isInitialized) {
 				element.style.opacity = 0;
-				Velocity(element, {opacity: 1});
+                $(element).velocity({opacity: 1});
 			}
             this.xx = element;
 		}
