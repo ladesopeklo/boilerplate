@@ -1,0 +1,21 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "mithril/mithril.d.ts": {
+      "commit": "4abbdff87f05616cfc421e0bf46c54a0ffdc06ce"
+    },
+    "velocity-animate/velocity-animate.d.ts": {
+      "commit": "4abbdff87f05616cfc421e0bf46c54a0ffdc06ce"
+    },
+    "zepto/zepto.d.ts": {
+      "commit": "4abbdff87f05616cfc421e0bf46c54a0ffdc06ce"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "4abbdff87f05616cfc421e0bf46c54a0ffdc06ce"
+    }
+  }
+}

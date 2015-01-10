@@ -23,3 +23,5 @@ client/css/startbootstrap-grayscale-1.0.0/**
 client/fullsize/bower_components/**
 client/fullsize/.idea/**
 client/fullsize/**
+client/modules/fullsize/bower_components/**
+client/modules/fullsize/.idea/**

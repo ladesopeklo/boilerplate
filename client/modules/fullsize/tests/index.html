@@ -1,0 +1,43 @@
+<html>
+<head>
+
+    <script src="../bower_components/mithril/mithril.min.js" type="text/javascript"></script>
+    <script src="../bower_components/zepto/zepto.min.js" type="text/javascript"></script>
+    <script src="../bower_components/velocity/velocity.min.js" type="text/javascript"></script>
+    <script src="../module.FullSize.js" type="text/javascript"></script>
+    <script src="../data/data.ImageGallery.js" type="text/javascript"></script>
+
+
+    <script src="../data/data.GoogleImage.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<script>
+    $(document).ready(function () {
+        var rawData = {"name": "prdel",
+            "images": [
+                {"u": "https://lh4.googleusercontent.com/-E3JAcMhjHo4/VBXc10rv1hI/AAAAAAAAAK4/ieggGLq7g3Q/s75/P1010019.jpg"},
+
+                {"u": "https://lh4.googleusercontent.com/-E3JAcMhjHo4/VBXc10rv1hI/AAAAAAAAAK4/ieggGLq7g3Q/s75/P1010019.jpg"},
+                {"u": "https://lh4.googleusercontent.com/-E3JAcMhjHo4/VBXc10rv1hI/AAAAAAAAAK4/ieggGLq7g3Q/s75/P1010019.jpg"},
+                {"u": "https://lh4.googleusercontent.com/-E3JAcMhjHo4/VBXc10rv1hI/AAAAAAAAAK4/ieggGLq7g3Q/s75/P1010019.jpg"}
+            ]};
+
+
+        var dashboard = {};
+
+        dashboard.controller = function() {
+            this.fullsize = new FullSize.controller({windowWidth: 999});
+            this.fullsize.showContent(new data.ImageGallery(rawData), 0);
+        };
+
+        dashboard.view = function(ctrl) {
+            return m("div", FullSize.view(ctrl.fullsize));
+        };
+
+        m.module(document.body, dashboard);
+    })
+</script>
+</body>
+</html>
