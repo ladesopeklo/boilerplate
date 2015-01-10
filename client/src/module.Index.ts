@@ -1,7 +1,6 @@
-///<reference path='..\libs\bower_components\mithril\mithril.d.ts'/>
-///<reference path='module.FullSize.ts'/>
+///<reference path='..\libs\typings\tsd.d.ts'/>
+///<reference path='..\libs\bower_components\fullsize\data\data.ImageGallery.ts'/>
 ///<reference path='data/data.Repository.ts'/>
-///<reference path='data/data.ImageGallery.ts'/>
 ///<reference path='module.Gallery.ts'/>
 ///<reference path='windowZepto.ts'/>
 
@@ -42,6 +41,7 @@ module Index {
     export function view(ctrl:Index.controller) {
         return [
             ctrl.galleries.map(function (item) {
+                console.log(item);
                 return m("div", Gallery.view(item));
             }),
         ];

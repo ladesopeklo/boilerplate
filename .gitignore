@@ -11,7 +11,7 @@ client/src/**.map
 client/src/**/*.map
 client/src/module.FullSize.js
 client/src/module.Gallery.js
-client/src/data/data.image.js
+client/src/data/data.GoogleImage.js
 client/src/data/data.ImageGallery.js
 client/src/data/data.ImageInterface.js
 client/src/module.Index.js

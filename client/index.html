@@ -133,54 +133,6 @@ http://www.colourlovers.com/palette/803258/french_kiss
 
 <script>
 	Zepto(function ($) {
-		var shown;
-		$(".full-body").scroll(function () {
-			var self = $(this),
-				nav = $(".nav"),
-				visible = $(".nav-content-scrolled").is("visible"),
-				scrolled = nav.offset().top < 0;
-
-
-			console.log(visible);
-			if (scrolled && !visible) {
-				$(".nav-content-scrolled").show()
-						.velocity({
-							top: 0,
-							opacity: 1
-						});
-
-			} else {
-				$(".nav-content-scrolled").hide()
-						.velocity({
-							top: -20,
-							opacity: 0
-						});
-			}
-
-
-			return ;
-			if (scrolled) {
-
-				$(".nav-content-scrolled")
-						.velocity({
-							top: 0,
-							opacity: 1
-						},
-						{display: "block"}
-				);
-
-			} else {
-				$(".nav-content-scrolled")
-						.velocity({
-							top: -20,
-							opacity: 0
-						},
-						{display: "none"}
-				);
-
-			}
-
-		});
 
 		return;
 		var mapOptions = {

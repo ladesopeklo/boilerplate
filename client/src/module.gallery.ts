@@ -1,8 +1,7 @@
-///<reference path='..\libs\bower_components\mithril\mithril.d.ts'/>
-///<reference path='data/data.ImageGallery.ts'/>
+///<reference path='..\libs\typings\tsd.d.ts'/>
+///<reference path='..\libs\bower_components\fullsize\module.FullSize.ts'/>
+///<reference path='..\libs\bower_components\fullsize\data\data.ImageInterface.ts'/>
 ///<reference path='data/data.Repository.ts'/>
-///<reference path='def/zepto.d.ts'/>
-///<reference path='module.FullSize.ts'/>
 ///<reference path='windowZepto.ts'/>
 
 module Gallery {
@@ -40,6 +39,7 @@ module Gallery {
 
 
         renderImage(image:data.ImageInterface, index:number) {
+            console.log(image);
             return  m("div", {'class': "render-image"}, [
                 m("img", {src: image.square(200), onclick: this.click.bind(this, index)})
             ]);

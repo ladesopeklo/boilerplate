@@ -1,4 +1,4 @@
-///<reference path='def/zepto.d.ts'/>
+///<reference path='..\libs\typings\tsd.d.ts'/>
 
 class WindowZepto {
 	static instance: WindowZepto = null;

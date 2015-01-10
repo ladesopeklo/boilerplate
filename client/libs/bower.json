@@ -21,6 +21,7 @@
 		"velocity": "velocity#*",
 		"zepto": "zepto#*",
 		"mithril": "mithril#*",
+		"fullsize": "../../../fullsize#*",
 		"polymer": "Polymer/polymer#~0.5.1"
 	},
 	"devDependencies" : {
