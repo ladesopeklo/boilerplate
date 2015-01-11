@@ -39,7 +39,6 @@ module Gallery {
 
 
         renderImage(image:data.ImageInterface, index:number) {
-            console.log(image);
             return  m("div", {'class': "render-image"}, [
                 m("img", {src: image.square(200), onclick: this.click.bind(this, index)})
             ]);
