@@ -7,65 +7,6 @@ entryDetail.AlbumDetail = function () {
 
 };
 
-
-(function () {
-
-	gData.Photo = function (data) {
-		this.width = Number(data.gphoto$width.$t, 10);
-		this.height = Number(data.gphoto$height.$t, 10);
-		this.id = data.gphoto$id.$t;
-		this.url = new gData.PhotoUrl(data.media$group.media$content[0].url);
-		this.thumb = data.media$group.media$thumbnail[0].url;
-	};
-	gData.Photo.prototype.toJson = function () {
-		return {u: this.url.get()};
-	};
-
-}());
-
-(function () {
-	gData.PhotoAlbum = function () {
-		this.photos = [];
-		this.title = "";
-	};
-
-	gData.PhotoAlbum.prototype.init = function (data) {
-		var i,
-			photos = data.feed.entry;
-
-		this.title = data.feed.title.$t;
-		for (i = 0; i < photos.length; i++) {
-			this.photos.push(new gData.Photo(photos[i]));
-		}
-	};
-
-	gData.PhotoAlbum.prototype.toJson = function () {
-		var json = [],
-			i;
-
-		for (i = 0; i < this.photos.length; i++) {
-			json.push(this.photos[i].toJson());
-		}
-		return json;
-	};
-
-}());
-
-(function () {
-	gData.PhotoUrl = function (url) {
-		this.url = url;
-		this.urlParts = this.url.split("/");
-
-		this.placeholder = this.urlParts.length - 1;
-	};
-
-	gData.PhotoUrl.prototype.get = function (size) {
-		this.urlParts[this.placeholder] = size || "s75-c";
-		return this.urlParts.join("/");
-	};
-}());
-
-
 entryDetail.getData = function () {
 	var id = m.route.param("id"),
         userId = globalSettings.userId;
@@ -91,6 +32,13 @@ entryDetail.resolveView = function (flag) {
 	}
 	return m("div", "flag " + flag);
 };
+entryDetail.resolveThumb = function (photo, flag) {
+   if (flag) {
+       return m("a", {href: photo.url.get() }, [
+           m("img", {src: photo.url.get()}),
+       ]);
+   }
+};
 
 
 entryDetail.view = function (controller) {
@@ -104,12 +52,9 @@ entryDetail.view = function (controller) {
 		m("div", entryDetail.resolveView(controller.flag())),
 		controller.album.photos.map(function (photo) {
 			return m("div", {style: "float:lexft"}, [
-				m("a", {href: photo.url.get() }, [
-					m("img", {src: photo.url.get()}),
-				]),
-				m("span", JSON.stringify(photo.toJson()))
+                entryDetail.resolveThumb(photo, controller.flag()),
+                m("span", JSON.stringify(photo.toJson()) + ",")
 			]);
-		}),
-//		m("div", JSON.stringify(controller.album.toJson()))
+		})
 	]);
 };
